@@ -5,7 +5,9 @@
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check-types": "tsc",
+    "check": "npm run check-types && npm run lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",

@@ -118,10 +118,8 @@ export default function PlaylistPage() {
   });
 
   function handleRemove(trackUri: string) {
-    if (!accessToken) return;
-
-    removeTrackMutation.mutate({
-      authToken: accessToken,
+    return removeTrackMutation.mutateAsync({
+      authToken: accessToken!,
       playlistId,
       items: [trackUri],
     });
