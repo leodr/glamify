@@ -60,7 +60,7 @@ export function AppLayout({ children }: Props) {
                   </button>
                 </div>
               </Transition.Child>
-              <Navigation />
+              <Navigation onNavigate={() => setSidebarOpen(false)} />
             </div>
           </Transition.Child>
           <div className="flex-shrink-0 w-14">

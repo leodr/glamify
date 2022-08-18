@@ -5,7 +5,11 @@ import { usePlaylists } from "../hooks/use-playlists";
 import { NavigationItem } from "./NavigationItem";
 import { useSpotifyAuth } from "./SpotifyAuthProvider";
 
-export function Navigation({}) {
+type Props = {
+  onNavigate?: () => void;
+};
+
+export function Navigation({ onNavigate }: Props) {
   const { data, error } = usePlaylists();
 
   const { me, logout } = useSpotifyAuth();
@@ -25,7 +29,7 @@ export function Navigation({}) {
         <div className="flex items-center flex-shrink-0 px-4">{/*  */}</div>
         <nav className="mt-5 flex-1 px-2" aria-label="Sidebar">
           {playlists?.map((item) => (
-            <NavigationItem key={item.id} item={item} />
+            <NavigationItem key={item.id} item={item} onNavigate={onNavigate} />
           ))}
         </nav>
       </div>

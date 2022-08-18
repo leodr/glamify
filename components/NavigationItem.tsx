@@ -6,9 +6,9 @@ import { useState } from "react";
 import { classNames } from "../lib/classNames";
 import { PlaylistInfo } from "../types/playlist-response";
 
-type Props = { item: PlaylistInfo };
+type Props = { item: PlaylistInfo; onNavigate?: () => void };
 
-export function NavigationItem({ item }: Props) {
+export function NavigationItem({ item, onNavigate }: Props) {
   const [isHovered, setIsHovered] = useState(false);
 
   const { asPath } = useRouter();
@@ -22,6 +22,7 @@ export function NavigationItem({ item }: Props) {
       <a
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={onNavigate}
         className={classNames(
           isActive
             ? "bg-gradient-to-r from-teal-600 to-emerald-500 text-white hover:text-white"
