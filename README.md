@@ -1,34 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./readme-assets/logo-github-dark.png">
+    <img height="256" alt="glamify" src="./readme-assets/logo-github-light.png">
+  </picture>
+</h1>
 
-## Getting Started
+<p align="center">
+    <strong> Manage and spice up your Spotify playlists. </strong>
+</p>
 
-First, run the development server:
+<p align="center"> 
+    <a href="https://github.com/leodr/glamify/blob/main/LICENSE">
+        <img alt="MIT License" src="https://img.shields.io/github/license/leodr/glamify?color=%23A855F7&labelColor=%2327272A&style=for-the-badge">
+    </a>
+    <a href="https://twitter.com/leodriesch">
+        <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/leodriesch?color=%2338BDF8&labelColor=%2327272A&style=for-the-badge">
+    </a>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<p align="center">
+    <a href="#-screenshots"><b>Screenshots</b></a>
+    <span>  •  </span>
+    <a href="#-development"><b>Development</b></a>
+    <span>  •  </span>
+    <a href="#-contribute"><b>Contribute</b></a>  
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+[glamify](https://glamify.io/) is a tool for Spotify to manage your playlists.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Currently it is able to remove tracks from the playlist in one click, shuffle the order of tracks in your playlist and give it an automated description with the most occuring artists of a given playlist.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+I'd also like to add automated playlist images in the future.
 
-## Learn More
+<br>
 
-To learn more about Next.js, take a look at the following resources:
+## ❯ Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Screenshot of the website](./readme-assets/screenshot.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br>
 
-## Deploy on Vercel
+## ❯ Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Requirements**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    You should have an LTS version of [Node.js](https://nodejs.org/en/)
+    installed.
+
+2. **Install the dependencies**
+
+    Run `npm install` to install all neccesary packages.
+
+3. **Run the Next.js development server**
+
+    Start the development server by running `npm run dev`.
+
+<br>
+
+## ❯ Contribute
+
+If you think you have any ideas that could benefit the project, feel free to
+create a pull request!
+
+<br>
+
+---
+
+<p align="center">
+    <sub>
+        Project by Leo Driesch, released under <a href="https://github.com/leodr/glamify/blob/main/LICENSE">MIT license</a>.
+    </sub>
+</p>
+<p align="center">
+    <a href="https://twitter.com/leodriesch">
+        <img alt="Leo Driesch on Twitter" src="./readme-assets/twitter.svg">
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://github.com/leodr">
+        <img alt="Leo Driesch on GitHub" src="./readme-assets/github.svg">
+    </a>
+</p>
