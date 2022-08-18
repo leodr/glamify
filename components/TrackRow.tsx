@@ -54,7 +54,7 @@ export default function TrackRow({ track, index, onRemove }: Props) {
           />
         </a>
       </td>
-      <td className="whitespace-nowrap py-4 pl-1 pr-3 sm:pl-3 text-sm font-medium text-gray-900 space-y-0.5">
+      <td className="whitespace-nowrap py-4 pl-2 pr-3 sm:pl-3 text-sm font-medium text-gray-900 space-y-0.5">
         <span className="block">{track.name}</span>
         <span className="block text-gray-500 text-xs">{artistsElements}</span>
       </td>
