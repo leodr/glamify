@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { SpotifyAuthProvider } from "../components/SpotifyAuthProvider";
 import "../styles/globals.css";
 
@@ -12,6 +12,9 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Head>
+        <link rel="icon" href="/icon.png" type="image/png" />
+      </Head>
       <SpotifyAuthProvider>
         {layoutFunction ? (
           layoutFunction(<Component {...pageProps} />)
@@ -19,7 +22,6 @@ function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         )}
       </SpotifyAuthProvider>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
 }

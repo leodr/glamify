@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -5,7 +7,11 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Figtree', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 };

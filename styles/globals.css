@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("/fonts/figtree.woff2") format("woff2 supports variations"),
+    url("/fonts/figtree.woff2") format("woff2-variations");
+  font-weight: 300 900;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

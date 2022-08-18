@@ -6,6 +6,7 @@ import {
   ViewListIcon,
 } from "@heroicons/react/outline";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import { useSpotifyAuth } from "../../../components/SpotifyAuthProvider";
@@ -126,17 +127,20 @@ export default function PlaylistPage() {
   }
 
   return (
-    <div className=" mb-8">
+    <div className="mb-8">
+      <Head>
+        <title>{playlist?.name} - glamify</title>
+      </Head>
       <div
         className={classNames(
-          "lg:flex lg:items-center lg:justify-between pt-8 pb-4 px-4 sm:px-6 lg:px-8",
-          "sticky -top-4 z-10 transition duration-150",
+          "lg:flex lg:items-center lg:justify-between pt-4 pb-4 px-4 sm:px-6 lg:px-8",
+          "sticky top-[50px] sm:top-[58px] md:top-0 z-10 transition duration-150",
           !scrolled ? "bg-gray-50" : "bg-white",
           !scrolled ? "shadow-none" : "shadow-xl"
         )}
       >
         <div className="flex-1 min-w-0">
-          <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:tracking-tight sm:truncate">
+          <h2 className="text-2xl font-extrabold leading-7 text-gray-900 sm:text-3xl sm:tracking-tight sm:truncate">
             <a
               href={playlist?.external_urls.spotify}
               target="_blank"
@@ -147,11 +151,14 @@ export default function PlaylistPage() {
             </a>
           </h2>
           {playlist?.description ? (
-            <div className="pt-1 pb-2 text-sm text-gray-500">
+            <p
+              aria-label="Description"
+              className="pt-1 pb-2 text-sm text-gray-500 max-w-prose"
+            >
               {playlist?.description}
-            </div>
+            </p>
           ) : null}
-          <div className="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             <div className="mt-2 flex items-center text-sm text-gray-500">
               <UsersIcon
                 className="flex-shrink-0 mr-1.5 mt-0.5 h-5 w-5 text-gray-400"

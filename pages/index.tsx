@@ -1,4 +1,6 @@
+import Head from "next/head";
 import { useMemo } from "react";
+import { Logo } from "../components/Logo";
 import { getAuthUrl } from "../lib/spotify-auth";
 
 export default function Page() {
@@ -6,15 +8,16 @@ export default function Page() {
 
   return (
     <>
-      <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
+      <Head>
+        <title>Login - glamify</title>
+      </Head>
+      <div className="min-h-full flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="flex-grow flex flex-col justify-end">
+          <Logo className="text-slate-300 w-40" />
+        </div>
+        <div className="max-w-md w-full flex flex-col items-stretch flex-shrink-0">
           <div>
-            <img
-              className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-              alt="Workflow"
-            />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            <h2 className="mt-12 text-center text-3xl font-extrabold text-gray-900">
               Sign in to your
               <br />
               Spotify account
@@ -31,12 +34,9 @@ export default function Page() {
               </a>{" "}
               at any time.
             </p>
-          </div>
-
-          <div>
             <a
               href={authUrl}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400 transition-colors"
+              className="mt-6 group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400 transition-colors"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                 <svg
@@ -53,6 +53,9 @@ export default function Page() {
               Sign in with Spotify
             </a>
           </div>
+        </div>
+        <div className="flex-grow flex flex-col justify-end">
+          <Logo className="opacity-0 w-64" />
         </div>
       </div>
     </>

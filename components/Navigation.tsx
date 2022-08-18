@@ -2,6 +2,7 @@ import { UserIcon } from "@heroicons/react/outline";
 import Image from "next/future/image";
 import { useMemo } from "react";
 import { usePlaylists } from "../hooks/use-playlists";
+import { Logo } from "./Logo";
 import { NavigationItem } from "./NavigationItem";
 import { useSpotifyAuth } from "./SpotifyAuthProvider";
 
@@ -25,8 +26,10 @@ export function Navigation({ onNavigate }: Props) {
 
   return (
     <div className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-gray-100">
-      <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-        <div className="flex items-center flex-shrink-0 px-4">{/*  */}</div>
+      <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto overscroll-y-contain">
+        <div className="flex items-center flex-shrink-0 px-4">
+          <Logo className="w-20 ml-1 text-slate-300" />
+        </div>
         <nav className="mt-5 flex-1 px-2" aria-label="Sidebar">
           {playlists?.map((item) => (
             <NavigationItem key={item.id} item={item} onNavigate={onNavigate} />

@@ -38,22 +38,23 @@ export default function TrackRow({ track, index, onRemove }: Props) {
 
   return (
     <motion.tr layout key={track.id} transition={{ delay: 0.02 * index }}>
-      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 bg-white space-y-0.5">
+      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 w-0">
         <a
           href={track.album.external_urls.spotify}
           target="_blank"
           rel="noreferrer"
+          className="w-8 h-8 block"
         >
           <Image
             src={track.album.images[0].url}
             alt=""
-            className="w-8 h-8 rounded-sm object-cover"
+            className="w-full h-full rounded-sm object-cover block"
             width={24}
             height={24}
           />
         </a>
       </td>
-      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 bg-white space-y-0.5">
+      <td className="whitespace-nowrap py-4 pl-1 pr-3 sm:pl-3 text-sm font-medium text-gray-900 space-y-0.5">
         <span className="block">{track.name}</span>
         <span className="block text-gray-500 text-xs">{artistsElements}</span>
       </td>
@@ -68,10 +69,10 @@ export default function TrackRow({ track, index, onRemove }: Props) {
           {track.album.name}
         </a>
       </td>
-      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-right">
+      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-right w-0">
         {msToDurationShort(track.duration_ms)}
       </td>
-      <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+      <td className="relative whitespace-nowrap py-4 pl-6 pr-4 text-right text-sm font-medium sm:pr-6 w-0">
         <button
           onClick={handleRemove}
           className="text-rose-600 hover:text-rose-900"
