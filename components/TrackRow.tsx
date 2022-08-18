@@ -37,7 +37,7 @@ export default function TrackRow({ track, index, onRemove }: Props) {
   );
 
   return (
-    <motion.tr layout key={track.id} transition={{ delay: 0.02 * index }}>
+    <motion.tr layout className="bg-white">
       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 w-0">
         <a
           href={track.album.external_urls.spotify}
