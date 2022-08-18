@@ -22,7 +22,9 @@ export default function Page() {
             <p className="mt-2 text-center text-sm text-gray-600">
               You can revoke the apps permissions{" "}
               <a
+                target="_blank"
                 href="https://spotify.com/account/apps"
+                rel="noreferrer"
                 className="font-medium text-emerald-600 hover:text-emerald-500"
               >
                 here
