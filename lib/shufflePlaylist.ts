@@ -9,6 +9,15 @@ export async function shufflePlaylist({
 }) {
   const tracksResponse = await getTracks(authToken, { playlistId });
 
+  console.log(`Playlist ID: ${playlistId}`);
+  console.log("Track URIs");
+  console.log(
+    JSON.stringify({ uris: tracksResponse.map((track) => track.track.uri) })
+  );
+  console.log(
+    "To restore your playlist go to https://developer.spotify.com/console/post-playlist-tracks/, enter the playlist id from above and paste the list of URIS into the Request Body field."
+  );
+
   const trackUris = tracksResponse.map((item) => item.track.uri);
   const shuffledTrackUris = shuffleArray(trackUris);
 
