@@ -1,4 +1,9 @@
-import { addTracks, getTracks, removeTracks } from "./api/spotify/tracks";
+import {
+  addTracks,
+  getTracks,
+  removeTracks,
+  updatePlaylistTracks,
+} from "./api/spotify/tracks";
 
 export async function shufflePlaylist({
   playlistId,
@@ -14,6 +19,7 @@ export async function shufflePlaylist({
   console.log(
     JSON.stringify({ uris: tracksResponse.map((track) => track.track.uri) })
   );
+  console.log(tracksResponse.map((track) => track.track.name).join());
   console.log(
     "To restore your playlist go to https://developer.spotify.com/console/post-playlist-tracks/, enter the playlist id from above and paste the list of URIS into the Request Body field."
   );
@@ -22,8 +28,15 @@ export async function shufflePlaylist({
   const shuffledTrackUris = shuffleArray(trackUris);
 
   try {
-    await removeTracks(authToken, { playlistId, items: trackUris });
-    await addTracks(authToken, { playlistId, items: shuffledTrackUris });
+    if (tracksResponse.length <= 100) {
+      await updatePlaylistTracks(authToken, {
+        playlistId,
+        newTrackUris: shuffledTrackUris,
+      });
+    } else {
+      await removeTracks(authToken, { playlistId, items: trackUris });
+      await addTracks(authToken, { playlistId, items: shuffledTrackUris });
+    }
   } finally {
     return shuffledTrackUris;
   }

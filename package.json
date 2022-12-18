@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "check-types": "tsc",
-    "check": "npm run check-types && npm run lint"
+    "check": "npm run check-types && npm run lint",
+    "generate-api": "openapi-generator-cli generate -i 'https://developer.spotify.com/_data/documentation/web-api/reference/open-api-schema.yml' -g typescript-fetch -o spotify-api --skip-validate-spec"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",

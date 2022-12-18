@@ -1,5 +1,5 @@
-import { UserIcon } from "@heroicons/react/outline";
-import Image from "next/future/image";
+import { UserIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import { useMemo } from "react";
 import { usePlaylists } from "../hooks/use-playlists";
 import { Logo } from "./Logo";

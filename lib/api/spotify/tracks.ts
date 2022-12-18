@@ -144,3 +144,30 @@ export async function replaceTracks(
     }
   }
 }
+
+export type PlaylistTracksUpdate = {
+  playlistId: string;
+  newTrackUris: string[];
+};
+
+export async function updatePlaylistTracks(
+  authToken: string,
+  { playlistId, newTrackUris }: PlaylistTracksUpdate
+) {
+  const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ uris: newTrackUris }),
+  });
+
+  if (response.ok) {
+    return;
+  }
+
+  throw Error("Request to update playlist tracks failed.");
+}

@@ -1,10 +1,10 @@
 import {
   ClockIcon,
   PencilIcon,
-  RefreshIcon,
+  ArrowPathRoundedSquareIcon,
   UsersIcon,
-  ViewListIcon,
-} from "@heroicons/react/outline";
+  QueueListIcon,
+} from "@heroicons/react/20/solid";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -167,7 +167,7 @@ export default function PlaylistPage() {
               {playlist?.public ? "Public playlist" : "Private playlist"}
             </div>
             <div className="mt-2 flex items-center text-sm text-gray-500">
-              <ViewListIcon
+              <QueueListIcon
                 className="flex-shrink-0 mr-1.5 mt-0.5 h-5 w-5 text-gray-400"
                 aria-hidden="true"
               />
@@ -200,7 +200,10 @@ export default function PlaylistPage() {
             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400"
             onClick={handleShuffleClick}
           >
-            <RefreshIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+            <ArrowPathRoundedSquareIcon
+              className="-ml-1 mr-2 h-5 w-5"
+              aria-hidden="true"
+            />
             Shuffle Tracks
           </button>
         </div>

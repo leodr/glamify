@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Dialog, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, ReactNode, useState } from "react";
 import { Navigation } from "../components/Navigation";
 
@@ -56,7 +56,10 @@ export function AppLayout({ children }: Props) {
                     onClick={() => setSidebarOpen(false)}
                   >
                     <span className="sr-only">Close sidebar</span>
-                    <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                    <XMarkIcon
+                      className="h-6 w-6 text-white"
+                      aria-hidden="true"
+                    />
                   </button>
                 </div>
               </Transition.Child>
@@ -82,7 +85,7 @@ export function AppLayout({ children }: Props) {
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
-            <MenuIcon className="h-6 w-6" aria-hidden="true" />
+            <Bars2Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
         <main className="flex-1 min-h-full">{children}</main>
