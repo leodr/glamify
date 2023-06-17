@@ -46,16 +46,16 @@ I'd also like to add automated playlist images in the future.
 
 1. **Requirements**
 
-    You should have an LTS version of [Node.js](https://nodejs.org/en/)
-    installed.
+   You should have an LTS version of [Node.js](https://nodejs.org/en/)
+   installed.
 
 2. **Install the dependencies**
 
-    Run `npm install` to install all neccesary packages.
+   Run `npm install` to install all neccesary packages.
 
 3. **Run the Next.js development server**
 
-    Start the development server by running `npm run dev`.
+   Start the development server by running `npm run dev`.
 
 <br>
 
