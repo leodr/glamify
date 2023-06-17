@@ -1,9 +1,11 @@
+"use client";
+
 import Head from "next/head";
 import { useMemo } from "react";
 import { Logo } from "../components/Logo";
 import { getAuthUrl } from "../lib/spotify-auth";
 
-export default function Page() {
+export function LoginPage() {
   const authUrl = useMemo(() => getAuthUrl(), []);
 
   return (

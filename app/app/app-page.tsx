@@ -1,22 +1,8 @@
-/* This example requires Tailwind CSS v2.0+ */
+"use client";
+
 import Head from "next/head";
-import { ReactNode } from "react";
-import { AppLayout } from "../../layouts/AppLayout";
 
-const people = [
-  {
-    name: "Jane Cooper",
-    title: "Regional Paradigm Technician",
-    department: "Optimization",
-    role: "Admin",
-    email: "jane.cooper@example.com",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-  },
-  // More people...
-];
-
-export default function AppHome() {
+export function AppPage() {
   return (
     <>
       <Head>
@@ -57,7 +43,3 @@ export default function AppHome() {
     </>
   );
 }
-
-AppHome.getLayout = (page: ReactNode) => {
-  return <AppLayout>{page}</AppLayout>;
-};

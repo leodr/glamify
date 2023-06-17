@@ -1,41 +1,31 @@
+"use client";
+
 import {
+  ArrowPathRoundedSquareIcon,
   ClockIcon,
   PencilIcon,
-  ArrowPathRoundedSquareIcon,
-  UsersIcon,
   QueueListIcon,
+  UsersIcon,
 } from "@heroicons/react/20/solid";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { ReactNode, useEffect, useMemo, useState } from "react";
-import { useSpotifyAuth } from "../../../components/SpotifyAuthProvider";
-import TrackRow from "../../../components/TrackRow";
-import { usePlaylists } from "../../../hooks/use-playlists";
-import { useTracksFromPlaylist } from "../../../hooks/use-tracks";
-import { AppLayout } from "../../../layouts/AppLayout";
-import { updatePlaylist } from "../../../lib/api/spotify/playlists";
-import { removeTrackMutationFn } from "../../../lib/api/spotify/tracks";
-import { classNames } from "../../../lib/classNames";
-import { msToDuration } from "../../../lib/format-durations";
-import { generateDescription } from "../../../lib/generateDescription";
-import { shufflePlaylist } from "../../../lib/shufflePlaylist";
-import { PlaylistInfo } from "../../../types/playlist-response";
+import { useParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { useSpotifyAuth } from "../../../../components/SpotifyAuthProvider";
+import TrackRow from "../../../../components/TrackRow";
+import { usePlaylists } from "../../../../hooks/use-playlists";
+import { useTracksFromPlaylist } from "../../../../hooks/use-tracks";
+import { updatePlaylist } from "../../../../lib/api/spotify/playlists";
+import { removeTrackMutationFn } from "../../../../lib/api/spotify/tracks";
+import { classNames } from "../../../../lib/classNames";
+import { msToDuration } from "../../../../lib/format-durations";
+import { generateDescription } from "../../../../lib/generateDescription";
+import { shufflePlaylist } from "../../../../lib/shufflePlaylist";
+import { PlaylistInfo } from "../../../../types/playlist-response";
 
-const people = [
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  // More people...
-];
-
-export default function PlaylistPage() {
-  const {
-    query: { id },
-  } = useRouter();
+export function PlaylistPage() {
+  const params = useParams();
+  const id = params?.id;
 
   const { data: playlists } = usePlaylists();
 
@@ -260,7 +250,3 @@ export default function PlaylistPage() {
     </div>
   );
 }
-
-PlaylistPage.getLayout = (page: ReactNode) => {
-  return <AppLayout>{page}</AppLayout>;
-};

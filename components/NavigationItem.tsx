@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { classNames } from "../lib/classNames";
 import { PlaylistInfo } from "../types/playlist-response";
@@ -11,14 +11,14 @@ type Props = { item: PlaylistInfo; onNavigate?: () => void };
 export function NavigationItem({ item, onNavigate }: Props) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const { asPath } = useRouter();
+  const asPath = usePathname();
 
   const path = `/app/playlists/${item.id}`;
 
   const isActive = asPath === path;
 
   return (
-    (<Link
+    <Link
       href={path}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -28,8 +28,8 @@ export function NavigationItem({ item, onNavigate }: Props) {
           ? "bg-gradient-to-r from-teal-600 to-emerald-500 text-white hover:text-white"
           : "text-gray-600 hover:text-gray-900",
         "group flex items-center px-3 py-2 text-sm font-medium rounded-md space-x-3 h-12"
-      )}>
-
+      )}
+    >
       <Image
         src={item.images[0].url}
         alt=""
@@ -64,7 +64,6 @@ export function NavigationItem({ item, onNavigate }: Props) {
           )}
         </AnimatePresence>
       </div>
-
-    </Link>)
+    </Link>
   );
 }

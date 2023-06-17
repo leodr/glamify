@@ -1,4 +1,5 @@
-/* This example requires Tailwind CSS v2.0+ */
+"use client";
+
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars2Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, ReactNode, useState } from "react";

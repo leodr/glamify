@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { useSearchParams } from "next/navigation";
 import {
   createContext,
   ReactNode,
@@ -31,8 +33,8 @@ export function SpotifyAuthProvider({ children }: Props) {
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [me, setMe] = useState<SpotifyMeResponse>();
 
-  const { query } = useRouter();
-  const { code: authCode } = query;
+  const params = useSearchParams();
+  const authCode = params?.get("code");
 
   useEffect(() => {
     const storedRefreshToken = localStorage.getItem(LOCAL_STORAGE_KEY);
