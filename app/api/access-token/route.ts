@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
-const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
-const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID!;
+const clientSecret = process.env.SPOTIFY_CLIENT_SECRET!;
 
 const TOKEN_URL = "https://accounts.spotify.com/api/token";
 
@@ -16,9 +16,10 @@ export async function POST(request: Request) {
     return new Response(null, { status: 400 });
   }
 
-  let body = "grant_type=refresh_token";
-  body += "&refresh_token=" + refreshToken;
-  body += "&client_id=" + clientId;
+  const body = new URLSearchParams();
+  body.append("grant_type", "refresh_token");
+  body.append("refresh_token", refreshToken);
+  body.append("client_id", clientId);
 
   const response = await fetch(TOKEN_URL, {
     method: "POST",

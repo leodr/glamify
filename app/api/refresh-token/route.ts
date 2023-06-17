@@ -16,11 +16,12 @@ export async function POST(request: Request) {
     return new Response(null, { status: 400 });
   }
 
-  let body = "grant_type=authorization_code";
-  body += "&code=" + authCode;
-  body += "&redirect_uri=" + encodeURI(redirectUri);
-  body += "&client_id=" + clientId;
-  body += "&client_secret=" + clientSecret;
+  const body = new URLSearchParams();
+  body.append("grant_type", "authorization_code");
+  body.append("code", authCode);
+  body.append("redirect_uri", redirectUri);
+  body.append("client_id", clientId);
+  body.append("client_secret", clientSecret);
 
   const response = await fetch(TOKEN_URL, {
     method: "POST",
