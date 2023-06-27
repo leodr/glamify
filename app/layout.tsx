@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { ReactNode } from "react";
 import "../styles/globals.css";
@@ -12,6 +13,11 @@ const figtree = Figtree({
   display: "swap",
   variable: "--font-figtree",
 });
+
+export const metadata: Metadata = {
+  title: "glamify",
+  description: "Manage your Spotify playlists with ease.",
+};
 
 export default function RootLayout({ children }: Props) {
   return (
